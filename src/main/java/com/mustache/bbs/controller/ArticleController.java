@@ -25,6 +25,11 @@ public class ArticleController {
         this.articleRepository = articleRepository;
     }
 
+    @GetMapping("")
+    public String index(){
+        return "redirect:/articles/list";
+    }
+
     @GetMapping(value = "/new")
     public String newArticleFrom(){
         return "/new";
@@ -35,7 +40,7 @@ public class ArticleController {
         log.info(form.toString());
         ArticleEntity articleEntity = form.toEntity();
         articleRepository.save(articleEntity);
-        return "";
+        return String.format("redirect:/articles/%d", articleEntity.getId());
     }
 
     @GetMapping(value = "/{id}")
