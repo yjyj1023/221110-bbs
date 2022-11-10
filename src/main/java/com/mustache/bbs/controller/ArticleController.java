@@ -31,9 +31,9 @@ public class ArticleController {
         return "redirect:/articles/list";
     }
 
-    @GetMapping(value = "/new")
+    @GetMapping(value = "new")
     public String newArticleFrom(){
-        return "/new";
+        return "new";
     }
 
     @PostMapping(value = "/posts")
