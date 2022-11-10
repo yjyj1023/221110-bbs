@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class ArticleEntity {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String title;
     private String content;
 
