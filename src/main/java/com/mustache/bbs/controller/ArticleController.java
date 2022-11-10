@@ -42,6 +42,7 @@ public class ArticleController {
     public String selectSingle(@PathVariable Long id, Model model){
         Optional<ArticleEntity> optArticle = articleRepository.findById(id);
         if(!optArticle.isEmpty()){
+            model.addAttribute("article", optArticle.get());
             return "show";
         }else{
             return "error";
