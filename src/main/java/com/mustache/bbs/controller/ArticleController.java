@@ -33,7 +33,7 @@ public class ArticleController {
 
     @GetMapping(value = "new")
     public String newArticleFrom(){
-        return "new";
+        return "/new";
     }
 
     @PostMapping(value = "/posts")
