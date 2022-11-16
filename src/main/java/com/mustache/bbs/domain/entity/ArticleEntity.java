@@ -1,5 +1,6 @@
 package com.mustache.bbs.domain.entity;
 
+import com.mustache.bbs.domain.ArticleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,6 @@ import javax.persistence.*;
 @Table(name = "article")
 public class ArticleEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String content;
@@ -21,5 +21,11 @@ public class ArticleEntity {
     public ArticleEntity(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public static ArticleResponse of(ArticleEntity articleEntity){
+        return new ArticleResponse(articleEntity.getId(),
+                articleEntity.getTitle(),
+                articleEntity.getContent());
     }
 }
